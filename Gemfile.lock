@@ -63,6 +63,7 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.7.3)
       msgpack (~> 1.0)
@@ -89,6 +90,7 @@ GEM
       activesupport (>= 5.0.0)
     jsonapi-serializers (1.0.1)
       activesupport
+    jwt (2.2.2)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -206,11 +208,13 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-reset-pk-sequence
+  bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
   jbuilder (~> 2.7)
   jsonapi-serializers
+  jwt
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
