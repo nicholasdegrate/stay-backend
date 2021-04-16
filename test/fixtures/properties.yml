@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  rate: MyString
+  address: MyString
+  bedrooms: MyString
+  bathrooms: MyString
+  host: one
+  availabilty: one
+
+two:
+  type: 
+  rate: MyString
+  address: MyString
+  bedrooms: MyString
+  bathrooms: MyString
+  host: two
+  availabilty: two
