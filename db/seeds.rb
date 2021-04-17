@@ -20,7 +20,8 @@ nick = Host.create!(
     location: "texas",
     age: 25,
     email: 'nicholas@gmail.com',
-    phone: '555-555-5555'
+    phone: '555-555-5555',
+    password: '123'
 )
 
 availability = Availability.create!(
