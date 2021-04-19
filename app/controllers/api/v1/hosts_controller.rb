@@ -14,7 +14,7 @@ class Api::V1::HostsController < Api::V1::BaseController
       if host && host.authenticate(params[:password])
         # save the user id in an encoded token
         token = JWT.encode({ host_id: host.id }, 'my$ecretK3y', 'HS256')
-        render json: { host: serialize_model(host), token: token }
+        render json: { host: serialize_model(host, include: ['properties']), token: token }
       else
         render json: { errors: ["Invalid username or password"] }, status: :unauthorized
       end
@@ -29,7 +29,7 @@ class Api::V1::HostsController < Api::V1::BaseController
       if host.valid?
         # send back a response with new user
         token = JWT.encode({ host_id: host.id }, 'my$ecretK3y', 'HS256')
-        render json: { host: serialize_model(host), token: token }, status: :created
+        render json: { host: serialize_model(host, include: ['properties']), token: token }, status: :created
       else
         # error messages
         render json: { errors: host.errors.full_messages }, status: :unprocessable_entity
