@@ -7,7 +7,6 @@ class CreateProperties < ActiveRecord::Migration[6.1]
       t.string :bedrooms
       t.string :bathrooms
       t.belongs_to :host, null: false, foreign_key: true
-      t.belongs_to :availability, null: false, foreign_key: true
 
       t.timestamps
     end

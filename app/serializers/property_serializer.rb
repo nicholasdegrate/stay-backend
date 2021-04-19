@@ -4,5 +4,6 @@ class PropertySerializer < BaseSerializer
     attribute :address
     attribute :bedrooms
     attribute :bathrooms
+    attribute :host_id
 
 end

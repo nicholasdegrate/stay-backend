@@ -24,11 +24,6 @@ nick = Host.create!(
     password: '123'
 )
 
-availability = Availability.create!(
-    max_nights: 3,
-    min_nights: 1
-)
-
 property = Property.create!(
     property_type: 'hotel',
     rate: 123,
@@ -36,8 +31,8 @@ property = Property.create!(
     bedrooms: 4,
     bathrooms: 2,
     host_id: nick.id,
-    availability_id: availability.id
 )
+
 
 review = Review.create!(
     rating: 4,

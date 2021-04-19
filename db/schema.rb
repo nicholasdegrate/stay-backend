@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_04_17_031101) do
   create_table "availabilities", force: :cascade do |t|
     t.integer "min_nights"
     t.integer "max_nights"
+    t.integer "property_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -41,10 +42,8 @@ ActiveRecord::Schema.define(version: 2021_04_17_031101) do
     t.string "bedrooms"
     t.string "bathrooms"
     t.bigint "host_id", null: false
-    t.bigint "availability_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["availability_id"], name: "index_properties_on_availability_id"
     t.index ["host_id"], name: "index_properties_on_host_id"
   end
 
@@ -59,7 +58,6 @@ ActiveRecord::Schema.define(version: 2021_04_17_031101) do
     t.index ["property_id"], name: "index_reviews_on_property_id"
   end
 
-  add_foreign_key "properties", "availabilities"
   add_foreign_key "properties", "hosts"
   add_foreign_key "reviews", "properties"
 end
