@@ -16,6 +16,20 @@ class Api::V1::PropertiesController < Api::V1::BaseController
         end
     end
 
+    def update
+        property = Property.find(params[:id])
+        property.update(property_params)
+        render json: serialize_model(property), status: :ok
+    end
+
+
+    def destroy
+        property = Property.find(params[:id])
+        property.destroy
+
+        render json: {success: ['delete successful']}
+    end
+
     private
 
         def property_params

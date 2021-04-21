@@ -45,9 +45,9 @@ class Api::V1::HostsController < Api::V1::BaseController
     # PATCH /me
     # authenticate
     def update
-      @current_host.update(bio: params[:bio], image: params[:image])
+      @current_host.update(host_params)
       # response!
-      render json: host
+      render json: @current_host
     end
   
     private
