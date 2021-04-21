@@ -38,9 +38,16 @@ ActiveRecord::Schema.define(version: 2021_04_17_031101) do
   create_table "properties", force: :cascade do |t|
     t.string "property_type"
     t.string "rate"
-    t.string "address"
+    t.string "address_name"
+    t.string "address_description"
+    t.string "guest"
+    t.string "location"
+    t.float "price"
     t.string "bedrooms"
     t.string "bathrooms"
+    t.string "door"
+    t.string "energy"
+    t.string "noise"
     t.bigint "host_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

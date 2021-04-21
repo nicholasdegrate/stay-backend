@@ -5,6 +5,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :name
       t.string :comment
+      
       t.belongs_to :property, null: false, foreign_key: true
 
       t.timestamps

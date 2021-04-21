@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
 Property.destroy_all
 Host.destroy_all
 Availability.destroy_all
@@ -17,27 +19,51 @@ Review.reset_pk_sequence
 nick = Host.create!(
     name: "nick",
     host_since: 2000,
-    location: "texas",
-    age: 25,
+    location: "Waco, Texas",
+    age: 22,
     email: 'nicholas@gmail.com',
-    phone: '555-555-5555',
+    phone: '342-435-5435',
     password: '123'
 )
 
-property = Property.create!(
-    property_type: 'hotel',
-    rate: 123,
-    address: 'fort worth, texas',
-    bedrooms: 4,
-    bathrooms: 2,
-    host_id: nick.id,
-)
+
+10.times do
+
+    
+    lockOrNOt = rand(1..2)
+    
+    result = ''
+
+    if lockOrNOt == 1
+        result = 'unlock'
+    else
+        result = 'locked'
+    end
 
 
-review = Review.create!(
-    rating: 4,
-    title: "great place",
-    name: "john",
-    comment: "this was a great place",
-    property_id: property.id
-)
+    Property.create!(
+        property_type: 'hotel',
+        rate: rand(1.0...5.0).round(2).to_s,
+        address_name: Faker::Address.street_address,
+        address_description: Faker::Address.full_address ,
+        guest: rand(1...8),
+        location:  Faker::Address.full_address ,
+        price: rand(110...1200),
+        bedrooms: rand(1...6),
+        bathrooms: rand(1..4),
+        door: result,
+        energy: rand(200...700),
+        noise: rand(10..110),
+        host_id: nick.id,
+    )
+end
+
+30.times do
+    Review.create!(
+        rating: rand(1.0...5.0).round(2).to_s,
+        title: Faker::Quote.robin,
+        name: Faker::Name.name ,
+        comment: Faker::Quote.matz,
+        property_id: rand(1...10)
+    )
+end

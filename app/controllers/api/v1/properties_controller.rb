@@ -6,7 +6,7 @@ class Api::V1::PropertiesController < Api::V1::BaseController
 
     def show
         property = Property.find(params[:id])
-        render json: serialize_model(property), status: :ok
+        render json: serialize_model(property, include: ['reviews']), status: :ok
     end
 
     def create
